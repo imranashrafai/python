@@ -1,0 +1,15 @@
+"""
+Alright so windows user here, saw a load of comments struggling with the - 'say' is not recognized as an internal or external command, operable program or batch file. error and I encountered it myself and dealt with it. Primarily you need to write the python script as it is from the video or access the GitHub and edit if you want. Secondly, you'll need to import the following library and edit the code slightly.
+import pyttsx3
+engine = pyttsx3.init()
+The library is imported, but also note that in Pycharm you may need to install the package manually that goes by the same name, 'Pyttsx3'. Now we need to edit the 'say' function so that, if the code is run on either Mac or Win it shall be able to identify and provide the response with voice. You can do it by creating a simple if else statement like following:
+def say(text):
+    if platform.system() == 'Darwin':  # Check if macOS
+        os.system(f'say "{text}"')
+    else:
+        # Use pyttsx3 for text-to-speech on other platforms
+        engine.say(text)
+        engine.runAndWait()
+That's it, the code shall run without any errors.
+Hope it helps. Cheers!
+"""
